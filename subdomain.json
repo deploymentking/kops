@@ -1,0 +1,27 @@
+{
+  "Comment": "Create a subdomain NS record in the parent domain",
+  "Changes": [
+    {
+      "Action": "CREATE",
+      "ResourceRecordSet": {
+        "Name": "kops.thnks.tk",
+        "Type": "NS",
+        "TTL": 300,
+        "ResourceRecords": [
+          {
+            "Value": "ns-1504.awsdns-60.org"
+          },
+          {
+            "Value": "ns-347.awsdns-43.com"
+          },
+          {
+            "Value": "ns-1822.awsdns-35.co.uk"
+          },
+          {
+            "Value": "ns-524.awsdns-01.net"
+          }
+        ]
+      }
+    }
+  ]
+}
