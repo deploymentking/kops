@@ -25,6 +25,8 @@ ID=$(uuidgen)
 aws route53 create-hosted-zone --name ${SUB_DOMAIN}.${DOMAIN} --caller-reference ${ID} | jq .DelegationSet.NameServers
 HOSTED_ZONE=$(aws route53 list-hosted-zones | jq --arg dom "${DOMAIN}." '.HostedZones[] | select(.Name==$dom) | .Id' | sed 's/\"//g')
 
+aws route53 list-resource-record-sets --hosted-zone-id ${HOSTED_ZONE} --query "ResourceRecordSets[?Type == 'NS']" | jq -r '.[0].ResourceRecords[].Value'
+
 aws route53 change-resource-record-sets --hosted-zone-id ${HOSTED_ZONE} --change-batch file://./route53_subdomain.json
 dig ns kops.thnks.tk
 aws s3api create-bucket --bucket ${S3_BUCKET} --region eu-west-1
