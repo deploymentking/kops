@@ -4,6 +4,7 @@ metadata:
   name: nodejs-hello-world-deployment
 spec:
   replicas: 3
+  revisionHistoryLimit: 20
   selector:
     matchLabels:
       app: nodejs-hello-world-dep
@@ -14,7 +15,7 @@ spec:
     spec:
       containers:
       - name: nodejs-hello-world
-        image: deploymentking/kops-node-app
+        image: deploymentking/kops-node-app:1.0.4
         ports:
         - name: nodejs-port
           containerPort: 3000
