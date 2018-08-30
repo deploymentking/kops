@@ -15,7 +15,19 @@ spec:
     spec:
       containers:
       - name: nodejs-hello-world
-        image: deploymentking/kops-node-app:1.0.4
+        image: deploymentking/kops-node-app
         ports:
         - name: nodejs-port
           containerPort: 3000
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: nodejs-port
+          initialDelaySeconds: 10
+          timeoutSeconds: 30
+        readinessProbe:
+          httpGet:
+            path: /readiness
+            port: nodejs-port
+          initialDelaySeconds: 10
+          timeoutSeconds: 60
