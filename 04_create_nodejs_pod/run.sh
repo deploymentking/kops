@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-work_dir=$(cd `dirname $0` && pwd)
+WORK_DIR=$(cd `dirname $0` && pwd)
 
-kubectl apply -f ${work_dir}/pod.yaml
-kubectl apply -f ${work_dir}/service.yaml
+kubectl apply -f ${WORK_DIR}/pod.yaml
+kubectl apply -f ${WORK_DIR}/service.yaml

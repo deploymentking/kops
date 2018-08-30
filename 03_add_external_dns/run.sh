@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-work_dir=$(cd `dirname $0` && pwd)
+WORK_DIR=$(cd `dirname $0` && pwd)
 
 export NAME=kops.thnks.tk
 #kops edit cluster ${NAME}
@@ -33,4 +33,4 @@ export NAME=kops.thnks.tk
 #      ]
 
 # https://github.com/kubernetes-incubator/external-dns/blob/master/docs/tutorials/aws.md
-kubectl apply -f ${work_dir}/external_dns.yaml
+kubectl apply -f ${WORK_DIR}/external_dns.yaml

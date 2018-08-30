@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-work_dir=$(cd `dirname $0` && pwd)
+WORK_DIR=$(cd `dirname $0` && pwd)
 
 # Check here for latest release
 # https://github.com/kubernetes/dashboard/releases
@@ -9,7 +9,7 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.0/
 # Create a ClusterRoleBinding for user kubernetes-dashboard created in yaml above
 # https://github.com/kubernetes/dashboard/wiki/Creating-sample-user
 # https://github.com/kubernetes/kops/blob/master/docs/addons.md#rbac
-kubectl apply -f ${work_dir}/rbac.yaml
+kubectl apply -f ${WORK_DIR}/rbac.yaml
 
 # Gets admin password
 # kops get secrets kube --type secret -oplaintext
