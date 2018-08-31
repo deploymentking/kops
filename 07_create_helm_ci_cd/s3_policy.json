@@ -1,0 +1,23 @@
+{
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::997013023889:role/nodes.kops.thnks.tk"
+      },
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::thnks-tk-helm/*"
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::997013023889:role/nodes.kops.thnks.tk"
+      },
+      "Action": "s3:ListBucket",
+      "Resource": "arn:aws:s3:::thnks-tk-helm"
+    }
+  ]
+}
