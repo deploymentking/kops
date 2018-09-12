@@ -25,6 +25,7 @@ helm repo add ${REPO_NAME} s3://${S3_BUCKET}/charts
 
 # package the chart
 helm package ${CHART_NAME}
+helm package --version ${CHART_VERSION} --app-version "develop-SNAPSHOT" springboot
 
 # push package to helm s3 repository
 helm s3 push ./${CHART_NAME}-${CHART_VERSION}.tgz ${REPO_NAME}
